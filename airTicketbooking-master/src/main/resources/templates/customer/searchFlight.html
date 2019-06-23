@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html
+        lang="en"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{public/layouts/master-page-layout-cust}">
+<head>
+    <title>  please add the title of the page</title>
+    <meta name="ViewPort" content="width=device-width, initial scale=1.0">
+</head>
+<body id="page1">
+<div class="main">
+    <th:block layout:fragment="content">
+      <meta name="ViewPort" content="width=device-width, initial scale=1.0">
+            <form action="/search" th:object="${schuedule}" method="POST">
+            
+            <div >
+                <h2>Out bound flight information</h2>
+                <div>
+                    <span>From</span>  <img src="images/departure_start_.png"width="40" height="40">
+                    <select th:field="*{departureAirport}" required>
+                        <option value="">Select Departure Airport</option>
+                        <option th:each="airport:${airports}" th:value="${airport.airportCode}"
+                                th:text="${airport.airportName}"></option>
+                    </select>
+                </div>
+
+                <div>
+                    <span class="left">To</span> <img src="images/arrival.png"width="40" height="40">
+                    <select th:field="*{arriavaleAirport}" required>
+                        <option value="">Select  Destination Airport </option>
+                        <option th:each="airport:${airports}" th:value="${airport.airportCode}"
+                                th:text="${airport.airportName}"></option>
+                    </select>
+                </div>
+
+                <div >
+                    <input type="radio" name="flight">  <span>One way</span>
+                    <input type="radio" name="flight">  <span>Two ways </span>
+                </div>
+            </div>
+
+                <div>
+                    <label for="departureDate"> Departure date </label>
+                    <input id="departureDate" name="departureDate" type="date"
+                           th:value="${schuedule.departureDate}"
+                           required="required">
+                </div>
+
+                <div>
+                    <label for="arrivaleaDate">Arrivalea Date </label>
+                    <input id="arrivaleaDate" name="arrivaleaDate" type="date"
+                           th:value="${schuedule.arrivaleaDate}"
+                           required="required">
+                </div>
+            <div class="wrapper pad_bot1"> <span class="left">Passengers</span>
+                <div>
+<label>  <span class="left">Adult</span></label>
+                <select>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                </select>
+                </div>
+
+                <div>
+                    <label>  <span class="left">Children</span></label>
+                <select>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                </select>
+                </div>
+                </div>
+
+                <div class="cols">
+                    <div class="select1"><span class="left">Class</span>
+                        <select>
+                            <option>Frist class</option>
+                            <option>Bussiness</option>
+                            <option>Economy</option>
+                        </select>
+                        <a href="#" class="help"></a>
+                    </div>
+                </div>
+                <br>
+<!--                <span class="left relative"><a href="/search"class="button1"><strong>Search</strong></a></span>-->
+
+
+                <div style="float:right;">
+                    <button id="btnSubmit" type="submit" class="btn btn-outline-primary">Search</button>
+                </div>
+        </form>
+    </th:block>
+    <br/>
+
+
+    <th:block layout:fragment="footer"/>
+</div>
+</div>
+</body>
+
+</html>

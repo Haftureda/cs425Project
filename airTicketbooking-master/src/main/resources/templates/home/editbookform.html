@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html
+        lang="en"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{public/layouts/master-page-layout}">
+<head>
+    <title>  please add the title of the page</title>
+
+</head>
+
+
+
+<body id="page1">
+<div class="main">
+
+
+    <!--onload="document.querySelector('#productNumber').focus();"-->
+    <th:block layout:fragment="content">
+
+<!--    <div align="center">-->
+
+
+        <h1>Edit User Details</h1>
+        <br />
+        <form action="#" th:action="@{/addCrew}" th:object="${book}"
+            method="post">
+ 
+            <table border="0" cellpadding="10">
+            <tr>             
+                    <td> ID:</td>
+                    <td>
+                        <input type="text" th:field="*{id}" />
+                    </td>
+                </tr>        
+                <tr>             
+                    <td>Crew ID:</td>
+                    <td>
+                        <input type="text" th:field="*{crewid}" />
+                    </td>
+                </tr>        
+                <tr>             
+                    <td>Name</td>
+                    <td>
+                        <input type="text" th:field="*{name}" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Gender:</td>
+                    <td><input type="text" th:field="*{gender}" /></td>
+                </tr>
+                <tr>
+                    <td>Position:</td>
+                    <td><input type="text" th:field="*{position}" /></td>
+                </tr>
+
+                <tr>
+                    <td colspan="2"><button type="submit">Save</button> </td>
+                </tr>
+            </table>
+        </form>
+<!--    </div>-->
+
+
+
+</th:block>
+
+
+
+
+
+
+<br/>
+
+<th:block layout:fragment="footer"/>
+
+</div>
+
+</body>
+</html>

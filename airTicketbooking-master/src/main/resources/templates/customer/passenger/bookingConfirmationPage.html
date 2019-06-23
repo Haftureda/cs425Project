@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html
+        lang="en"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{public/layouts/master-page-layout-cust}">
+<head>
+    <title>  please add the title of the page</title>
+
+</head>
+
+
+
+<body id="page1">
+<div class="main">
+
+
+    <!--onload="document.querySelector('#productNumber').focus();"-->
+    <th:block layout:fragment="content">
+        <!--        <form id="productForm" method="post" action="/srm/secured/product/new" th:object="${product}">-->
+
+        <!--        </form>-->
+<h1> You have succesfuly reserved a flight with us!</h1>
+
+<h2>  Thank you for choosing us. See you soon.</h2>
+
+    </th:block>
+
+    <br/>
+
+
+    <th:block layout:fragment="footer"/>
+
+</div>
+
+</body>
+</html>

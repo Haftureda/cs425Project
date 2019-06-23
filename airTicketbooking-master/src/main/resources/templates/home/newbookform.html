@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html
+        lang="en"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{public/layouts/master-page-layout}">
+<head>
+    <title>  please add the title of the page</title>
+
+</head>
+
+
+
+<body id="page1">
+<div class="main">
+
+    <!--onload="document.querySelector('#productNumber').focus();"-->
+    <th:block layout:fragment="content">
+
+        <h1>Crew Assignment</h1>
+        <br>     <br>     <br>
+        <form action="#" th:action="@{/addCrew}" th:object="${book}"
+              method="post">
+
+            <table border="0" cellpadding="10">
+                <tr>
+                    <td>Crew Id:</td>
+                    <td><input type="text" th:field="*{crewid}" /></td>
+                </tr>
+                <tr>
+                    <td>name:</td>
+                    <td><input type="text" th:field="*{name}" /></td>
+                </tr>
+                <tr>
+                    <td>Gender:</td>
+                    <td>
+                        <select th:field="*{gender}" required>
+                            <option value="Male" th:text="Male">Male</option>
+                            <option value="Female" th:text=" Female">Female</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Position:</td>
+                    <td>
+                        <select th:field="*{position}" required>
+                            <option th:text="Pilot" value="Pilot">Pilot</option>
+                            <option value="Copilot" th:text="Copilot">Copilot</option>
+                            <option value="Hostes" th:text="Hostes">Hostes</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2"><button type="submit">Save</button> </td>
+                </tr>
+            </table>
+        </form>
+
+    </th:block>
+
+    <br/>
+
+    <th:block layout:fragment="footer"/>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html
+        lang="en"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{public/layouts/master-page-layout}">
+<head>
+    <title>  please add the title of the page</title>
+</head>
+<body>
+<div class="container">
+    <h3>List of  active airports </h3>
+    <hr/>
+    <a  href="/newairport"><h5> Add  new Airport </h5></a>
+    <div style="font-size: 1em">
+
+        <form action="/airport/list" th:object="${airports}" method="GET">
+
+            <table id="t01" border="1" width="70%" cellpadding="2">
+                <tr><th> Id</th><th>Code</th><th>Name </th>
+                    <th>Country</th><th>City </th>
+                    <th>Edit</th><th>Delete</th></tr>
+
+                <tr th:each="airport:${airports}">
+                    <td th:text="${airport.getId()}"></td>
+                    <td th:text="${airport.getAirportCode()}"></td>
+                    <td th:text="${airport.getAirportName()}"></td>
+                    <td th:text="${airport.getCountry()}"></td>
+                    <td th:text="${airport.getCity()}"></td>
+
+                    <td><a th:href="@{'/editairport/' + ${airport.getId()}}">Edit</a></td>
+
+                    <td><a th:href="@{'/deleteairport/' + ${airport.getId()}}">Delete</a></td>
+                </tr>
+            </table>
+            <br/>
+        </form>
+
+    </div>
+</div>
+
+    <th:block layout:fragment="footer"/>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
+</body>
+</html>

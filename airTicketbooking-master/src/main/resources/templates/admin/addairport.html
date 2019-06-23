@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html
+        lang="en"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{public/layouts/master-page-layout}">
+<head>
+    <title>  please add the title of the page</title>
+</head>
+<body>
+<th:block layout:fragment="content">
+    <div class="content">
+        <div class="tab-content" id="Flight">
+
+            <form action="#" th:action="@{/saveAirport}" th:object="${airport}" method="post">
+                <table>
+                    <tr>
+                        <td colspan="2">Airport Code :</td>
+
+                        <td width="90%" align="left">
+                            <input type="text" th:field="*{airportCode}" />
+                    </tr>
+                    <tr>
+                        <td colspan="2">Airport Name: 	</td>
+
+                        <td><input type="text" th:field="*{airportName}" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"> Coutry: 	</td>
+
+                        <td><input type="text" th:field="*{country}" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"> City :	</td>
+                        <td>     <input type="text" th:field="*{city}" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>	</td>
+                        <td  colspan="2">
+                            <input class="button1" type="submit" value="Save"/>
+                        </td>
+                    </tr>
+
+                </table>
+            </form>
+
+        </div>
+    </div>
+
+</th:block>
+<br/>
+<th:block layout:fragment="footer"/>
+</body>
+</html>

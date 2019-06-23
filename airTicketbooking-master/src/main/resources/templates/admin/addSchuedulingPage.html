@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html
+        lang="en"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{public/layouts/master-page-layout}">
+<head>
+    <title>  please add the title of the page</title>
+
+</head>
+
+
+
+<body >
+
+
+<br> <br>
+<div class="main">
+    <!--header -->
+    <header>
+        <div class="wrapper">
+            <h1><a href="/" id="logo">AirLines</a></h1>
+            <span id="slogan">Fast, Frequent &amp; Safe Flights</span>
+            <nav id="top_nav">
+                <ul>
+                    <li><a href="/" class="nav1">Home</a></li>
+                    <li><a href="#" class="nav2">Sitemap</a></li>
+                    <li><a href="/contact" class="nav3">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+        <nav>
+            <ul id="menu">
+                <li><a href="/admin/listSchuedule" th:href="@{/admin/offers}"><span><span>Offers</span></span></a></li>
+                <li ><a href="/admin/airportList"th:href="@{/admin/airportList}"><span><span>Airport</span></span></a></li>
+                <li id="menu_active"><a href="/admin/schueduleList"  th:href="@{/admin/schueduleList}"><span><span>Schuedule</span></span></a></li>
+                <!--                <li><a href="/safety"><span><span>Safety</span></span></a></li>-->
+                <li class="end"><a href="/admin/report" th:href="@{/admin/report}"><span><span>Report</span></span></a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- / header -->
+    <!--content -->
+
+    <article >
+        <div class="container">
+            <form action="#" th:action="@{/saveSchuedule}" th:object="${schuedule}" method="post">
+                <div class="row">
+                    <div class="col-25">
+                        <label for="dAirport">Departure  Airport</label>
+                        <select id="dAirport" name="departureAirport" th:value="*{departureAirport}" >
+                            <option value="ADD"> Addis Ababa</option>
+                            <option value="CPH">Copenhagen</option>
+                            <option value="BDJ">Oslo</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-25">
+                        <label for="dDate">Departure Date:</label>
+                        <input type="date" name="departureDate" id="dDate" th:value="${schuedule.departureDate}" required/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="dTime">Departure Time :</label>
+                        <input type="time" name="departureTime" id="dTime" th:value="${schuedule.departureTime}" required />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-25">
+                        <label for="aArrivaleAirport">Distination Airport</label>
+
+                        <select id="aArrivaleAirport" th:value="*{arriavaleAirport}">
+                            <option value="ADD"> Addis Ababa</option>
+                            <option value="CPH">Copenhagen</option>
+                            <option value="BDJ">Oslo</option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-25">
+                        <label for="aDate">Arrivale Date:</label>
+                        <input type="date" name="arrivaleDate" id="aDate" th:value="${schuedule.arrivaleaDate}"required/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="aTime">Arrivale Time :</label>
+                        <input  name="arrivaleTime" type="time" id="aTime" th:value="${schuedule.arrivaleTime}" required/>
+                    </div>
+                </div>
+                <div class="row">
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
+        </div>
+    </article>
+</div>
+
+
+
+
+<!--footer -->
+<br>
+<br>
+<footer>
+    <div class="links">
+        Design by <a target="_blank" href="http://www.mum.edu/"> Student from  CS425 course project </a>
+    </div>
+</footer>
+<!--footer end-->
+<script type="text/javascript">Cufon.now();</script>
+</body>
+</html>

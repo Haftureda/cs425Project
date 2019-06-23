@@ -1,0 +1,67 @@
+<!DOCTYPE html >
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+ <title>List of Airplanes</title>
+</head>
+
+<body>
+	<div class = "container">
+		<h3>List Of Available Flights</h3>
+		<hr>
+			<!-- Adding a botton here that takes me to form to add airplane -->
+			<a th:href= "@{/searchFlight}" class ="btn btn-primary btn-sm mb-3">
+				Alternative Flights
+			</a>
+			<table class ="table table-bordered table-striped" >
+				<thead class = "thead-dark">
+					<tr>
+                        <th>Schuedule Id</th>
+                        <th> Plan Id</th>
+						<th>Plane Number</th>
+						<th>Departure Airport</th>
+						<th>Destination Airport</th>
+						<th>Departure Date</th>
+						<th>Arrival Date</th>
+						<th>Price</th>
+						<th> Action</th>
+					</tr>
+				</thead>
+
+				<!-- to loop over the data using Thymeleaf -->
+				<tbody>
+                <tr th:each="schedule:${flights}">
+                    <td th:text="${schedule.getId()}"/>
+						 <td th:text="${schedule.getPlaneId()}"/>
+						<td th:text="${schedule.getPlaneNumber()}"/>
+						<td th:text="${schedule.departureAirport}"/>
+						<td th:text="${schedule.getDepartureDate()}"/>
+						<td th:text="${schedule.departureDate}"/>
+						<td th:text="${schedule.arrivaleaDate}"/>
+						<td th:text="${schedule.price}"/>
+
+						<td>
+<!--					<td><a th:href="@{'/newBooking/' + ${schedule.getId()}}">Details</a>-->
+					<a th:href="@{'/newBooking/' + ${schedule.getId()}}">Select</a>
+							<!-- update button -->
+<!--							<a th:href="@{/airplanes/update(id =  ${schedule.getId()})}"-->
+<!--								class =" btn btn-success btn-sm"> Details </a>-->
+<!--							&nbsp;&nbsp;&nbsp;-->
+<!--							<a th:href="@{/airplanes/delete(id =${schedule.getId()})}"-->
+<!--								class =" btn btn-danger btn-sm"-->
+<!--								onclick="if (! (confirm('You are selecting this particular flight?'))) return false">-->
+<!--								<Strong> Select</Strong>-->
+<!--							</a>-->
+						 </td>
+					</tr>
+				</tbody>
+			</table>
+
+	</div>
+</body>
+</html>

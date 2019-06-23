@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html
+        lang="en"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{public/layouts/master-page-layout}">
+<head>
+    <title>  please add the title of the page</title>
+</head>
+<body>
+
+<th:block layout:fragment="content">
+    <section id="content">
+            <article >
+                        <h3>List of  Planned Flight Schuedules </h3>
+                        <hr/>
+                        <a href="/newSchuedule"><h5> new schuedule </h5></a>
+                        <form action="/admin/schueduleList" th:object="${schuedules}" method="GET">
+
+                            <table class ="table table-bordered table-striped" >
+                                <thead class = "thead-dark">
+
+
+                                <tr>
+                                    <th> Id</th><th>Departure Airport</th><th> Departure Date </th>
+<!--                                    <th>Departure Time</th>-->
+                                    <th>Arrivale Airport</th><th> Arrivale Date </th>
+<!--                                    <th>Arrivale Time</th>-->
+                                    <th> Airplane Number </th>
+                                    <th>Price(USD)</th>
+                                    <th>Edit</th><th>Delete</th></tr>
+
+
+
+                                <tr th:each="schuedule:${schuedules}">
+
+                                    <td th:text="${schuedule.getId()}"></td>
+                                    <td th:text="${schuedule.getDepartureAirport()}"></td>
+                                    <td th:text="${schuedule.getDepartureDate()}"></td>
+
+                                    <td th:text="${schuedule.getArriavaleAirport()}"></td>
+                                    <td th:text="${schuedule.getArrivaleaDate()}"></td>
+
+                                    <td th:text="${schuedule.getPlaneNumber()}"></td>
+
+                                    <td th:text="${schuedule.getPrice()}"></td>
+
+                                    <td><a th:href="@{'/editschuedule/' + ${schuedule.getId()}}">Edit</a></td>
+
+                                    <td><a th:href="@{'/deleteschuedule/' + ${schuedule.getId()}}">Delete</a></td>
+                                </tr>
+                            </table>
+                            <br/>
+                            </form>
+        </article>
+    </section>
+</th:block>
+<br/>
+<th:block layout:fragment="footer"/>
+</body>
+</html>

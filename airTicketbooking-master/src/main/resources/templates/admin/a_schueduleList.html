@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html
+        lang="en"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{public/layouts/master-page-layout}">
+<head>
+    <title>  please add the title of the page</title>
+
+</head>
+
+
+
+<body>
+<!--onload="document.querySelector('#productNumber').focus();"-->
+<th:block layout:fragment="content">
+
+    <h3>List of  Planned Flight Schuedules </h3>
+    <hr/>
+    <a  href="/newSchuedule"><h5> new schuedule </h5></a>
+    <form action="#" th:action="@{/s}" th:object="${schuedule}" method="post">
+        <table border="3" width="90%" cellpadding="2">
+            <tr>
+                <th> Id</th><th>Departure Airport</th><th> Departure Date </th>
+                <th>Departure Time</th>
+                <th>Arrivale Airport</th><th> Arrivale Date </th>
+                <th>Arrivale Time</th>
+                <th>Price(USD)</th>
+                <th>Edit</th><th>Delete</th></tr>
+
+            <tr th:each="schuedule:${schuedules}">
+
+                <td th:text="${schuedule.getId()}"></td>
+                <td th:text="${schuedule.getDepartureAirport()}"></td>
+                <td th:text="${schuedule.getDepartureDate()}"></td>
+                <!--                    <td th:text="${schuedule.getDepartureTime()}"></td>-->
+
+                <td th:text="${schuedule.getArriavaleAirport()}"></td>
+                <td th:text="${schuedule.getArrivaleaDate()}"></td>
+                <!--                    <td th:text="${schuedule.getDepartureTime()}"></td>-->
+                <td th:text="${schuedule.getPrice()}"></td>
+
+                <td><a th:href="@{'/editschuedule/' + ${schuedule.getId()}}">Edit</a></td>
+
+                <td><a th:href="@{'/deleteschuedule/' + ${schuedule.getId()}}">Delete</a></td>
+            </tr>
+        </table>
+        <br/>
+        </form:form>
+
+
+</th:block>
+<br/>
+<br/>
+
+
+
+<th:block layout:fragment="footer"/>
+
+</body>
+</html>

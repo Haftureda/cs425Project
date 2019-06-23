@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html
+		lang="en"
+		xmlns:th="http://www.thymeleaf.org"
+		xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+		layout:decorate="~{public/layouts/master-page-layout}">
+<head>
+	<title>  please add the title of the page</title>
+
+</head>
+
+
+<body id="page1">
+<div class="main">
+
+
+	<!--onload="document.querySelector('#productNumber').focus();"-->
+	<th:block layout:fragment="content">
+		<!--        <form id="productForm" method="post" action="/srm/secured/product/new" th:object="${product}">-->
+
+		<div class = "container">
+	
+		<h3>Form For Adding New Airplane</h3>
+
+		
+		<form action ="#" th:action ="@{/save}"
+						  th:object  ="${jets}" method = "POST">
+			
+		<!-- add a hidden form field to handle the update. this is only for update or edit -->
+		
+			<input type="hidden" th:field= "*{id}">
+			 <!-- <input type ="text" th:field ="*{planeId}" 
+				   class = "form-control mb-4 col-4"  placeholder =" Plane Id">  -->
+				   
+			<input type ="text" th:field ="*{planeNumber}" 
+				   class = "form-control mb-4 col-4"  placeholder =" Plane Number">
+				   			   
+			<input type ="text" th:field ="*{model}" 
+				   class = "form-control mb-4 col-4"  placeholder =" Model">
+				   
+			<input type ="text" th:field ="*{make}" 
+				   class = "form-control mb-4 col-4"  placeholder =" Make">
+				   
+			<input type ="text" th:field ="*{capacity}" 
+				   class = "form-control mb-4 col-4"  placeholder =" Capacity">
+				   
+			<button type = "submit" class ="btn btn-info col-2"> save</button>
+		
+		</form>
+		
+		<hr> 
+		<!-- a link to the list of airplanes -->
+		<a th:href ="@{/list}"> Back to list of airplanes</a>
+	
+	</div>
+
+
+	</th:block>
+
+	<br/>
+
+
+	<th:block layout:fragment="footer"/>
+
+</div>
+
+</body>
+</html>

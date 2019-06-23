@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html
+        lang="en"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{public/layouts/master-page-layout}">
+<head>
+    <title>  please add the title of the page</title>
+
+</head>
+
+<body>
+<!--onload="document.querySelector('#productNumber').focus();"-->
+<th:block layout:fragment="content">
+
+    <br> <br>
+    <div class="main">
+
+        <div class="container">
+
+            <form action="/saveSchuedule" th:object="${schuedule}" method="POST">
+                <fieldset>
+                    <legend>New  Form</legend>
+                    <div class="container" style="margin-top: 1em;">
+                        <div class="row">
+                            <div class="col-md-6">
+                            </div>
+                            <div >
+                                <labe>  <strong> From</strong>:</labe>
+                                <select th:field="*{departureAirport}" required>
+                                    <option value="">Select  departure airport</option>
+                                    <option th:each="airport:${airports}" th:value="${airport.airportCode}"
+                                            th:text="${airport.airportName}"></option>
+                                </select>
+                            </div>
+                            <div >
+                                <label for="departureDate"> <strong> departure Date</strong> </label>
+                                <input id="departureDate" name="departureDate" type="date"  th:value="${schuedule.departureDate}"
+                                       required="required">
+                            </div>
+
+                            <div >
+                                <labe> To:</labe>
+                                <select th:field="*{arriavaleAirport}" required>
+                                    <option value="">Select distination  airport</option>
+                                    <option th:each="airport:${airports}" th:value="${airport.airportCode}" th:text="${airport.airportName}"></option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="arrivaleaDate">Arrivalea Date </label>
+                                <input id="arrivaleaDate" name="arrivaleaDate" type="date"
+                                       th:value="${schuedule.arrivaleaDate}"
+                                       required="required">
+                            </div>
+
+                            <div>
+                                <labe>  <strong>  Airplane Number(Code)</strong>:</labe>
+                                <select th:field="*{planeNumber}" required>
+                                    <option value="">Select  plane Number </option>
+                                    <option th:each="airplane:${airplanes}" th:value="${airplane.id}"
+                                            th:text="${airplane.planeNumber}"></option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="Price">Price </label>
+                                <input id="Price" name="Price" type="text" class="form-control" th:value="${schuedule.price}" required="required">
+                            </div>
+                        </div>
+
+                        <div style="float:right;">
+                            <button id="btnReset" type="reset" class="btn btn-outline-info" style="margin-right: 2em;">Reset</button>
+                            <a href="/admin/schueduleList" class="btn btn-outline-warning" style="margin-right: 2em;">Cancel</a>
+                            <button id="btnSubmit" type="submit" class="btn btn-outline-primary">Add schuedule</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+
+    <!--footer -->
+    <br>
+    <br>
+
+</th:block>
+
+<br/>
+
+
+<th:block layout:fragment="footer"/>
+
+</body>
+</html>

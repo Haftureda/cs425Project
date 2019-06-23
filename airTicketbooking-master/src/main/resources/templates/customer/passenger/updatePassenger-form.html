@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Passenger Information to be Updated</title>
+</head>
+
+<body>
+
+	<div class="container">
+	
+		<h3>Passenger Directory</h3>
+		<hr>
+		
+		<p class="h4 mb-4">Save Passenger</p>
+	
+		<form action="#" th:action="@{/save}"
+						 th:object="${passenger}" method="POST">
+				
+						 
+           <tr>
+				<td> Passenger Name</td>
+		
+           <td>
+           <input type="hidden" th:field="*{id}"/>
+			<input type="text" th:field="*{passengerName}"/>
+			</td>
+			
+			</tr>
+			
+			
+			<tr>
+						     <td> Passenger LastName</td>
+		
+			 <td>		
+			<input type="text" th:field="*{passengerLastName}"/></td>
+			
+			</tr>
+			
+			
+					
+			<tr>
+						     <td> Passenger Id</td>
+		
+			
+			 <td>		
+			<input type="text" th:field="*{passengerId}"/></td>
+			
+			</tr>
+			
+			
+			<tr>
+						     <td> Sex</td>		
+			 <td>		
+			<input type="text" th:field="*{sex}"/></td>
+			
+			</tr>
+			
+			<tr>
+						     <td> Date</td>		
+			 <td>		
+			<input type="date" th:field="*{date}"/></td>
+			
+			</tr>
+					
+			<tr>
+						    <td> Email</td>		
+			 <td>		
+			<input type="text" th:field="*{email}"/></td>
+			
+			</tr>
+			
+			<tr>
+						     <td> PhoneNumber</td>		
+			 <td>		
+			<input type="text" th:field="*{phone}"/></td>
+			
+			</tr>		
+			<tr>
+			<td>	
+			<button type="submit" class="btn btn-info col-2">Save</button></td>
+			</tr>			
+		</form>
+		<tr>
+		<td>
+	<a th:href="@{/list}">Back to Passenger List</a>
+		</td>
+		</tr>
+	</div>
+</body>
+
+</html>
+<!-- "readonly="readonly"/>< -->
+<hr>
+		
+				

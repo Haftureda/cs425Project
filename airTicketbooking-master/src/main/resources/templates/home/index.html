@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html
+        lang="en"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{public/layouts/master-page-layout}">
+<head>
+    <title>  please add the title of the page</title>
+
+</head>
+
+
+
+<div id="page1">
+<div class="main">
+
+
+    <!--onload="document.querySelector('#productNumber').focus();"-->
+    <th:block layout:fragment="content">
+
+
+    <!--    //////////-->
+
+    <h1>List Of Crew Members</h1>
+        <br><br>
+    <a href="/new">Assign Crew Member</a>
+    <br/><br/>
+        <table class ="table table-bordered table-striped" >
+            <thead class = "thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Crew ID</th>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Position</th>                         
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="book : ${bookList}">
+                 <td th:text="${book.id}">ID</td>
+                <td th:text="${book.crewid}">Crew ID</td>
+                <td th:text="${book.name}">Name</td>
+                <td th:text="${book.gender}">Gender</td>
+                <td th:text="${book.position}">Position</td>         
+                
+                 <td>
+                    <a th:href="@{'/editCrew/' + ${book.id}}">Edit</a>
+                    &nbsp;&nbsp;&nbsp;
+                    <a th:href="@{'/deleteCrew/' + ${book.id}}">Delete</a>
+                </td>
+                
+               
+            </tr>
+        </tbody>
+    </table>
+
+</th:block>
+</div>
+
+
+<br/>
+
+<th:block layout:fragment="footer"/>
+
+</div>
+
+</body>
+</html>

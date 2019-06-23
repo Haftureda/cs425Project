@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html
+        lang="en"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{public/layouts/master-page-layout}">
+<head>
+    <title>  please add the title of the page</title>
+</head>
+<body>
+
+<th:block layout:fragment="content">
+    <h1> Editing an aldready schulded  flight</h1>
+    <form action="#" th:action="@{/editsave}" th:object="${schuedule}" method="post">
+        <table>
+        
+         <tr>
+                <td width="10%">ID:</td>
+                <td width="90%" align="left">
+                    <input type="text" name="id" th:field="*{id}" /></td>
+            </tr>
+            <tr>
+                <td width="10%">Departure Date:</td>
+                <td width="90%" align="left">
+                    <input type="date" name="dDate" th:field="*{departureDate}" /></td>
+            </tr>
+            <tr>
+                <td width="10%">Arrivalea Date :</td>
+
+                <td width="90%" align="left">
+                    <input type="date" name="aDate" th:field="*{arrivaleaDate}"/></td>
+            </tr>
+            <tr>
+                <td>Departure Airport: 	</td>
+                <td><input type="text" th:field="*{departureAirport}" /></td>
+            </tr>
+            <tr>
+                <td> Distination Airport:	</td>
+                <td>     <input type="text" th:field="*{arriavaleAirport}" /></td>
+            </tr>
+            <tr>
+                <td>Price  :</td>
+                <td>
+                    <input type="text" name="price" th:field="*{price}" /></td>
+            </tr>
+            <tr>
+                <td>	</td>
+                <td >
+                    <input type="submit" value="Update"/>
+                </td>
+            </tr>
+        </table>
+    </form>
+</th:block>
+<br/>
+<th:block layout:fragment="footer"/>
+</body>
+</html>
